@@ -8,6 +8,9 @@
                 </span>
                 <h2>
                     {{ .Site.Params.hero.title }}
+                    {{ if .Site.Params.hero.nameAsterisk }}
+                      <sup><a href="#nameast" id="nameastref">*</a></sup>
+                    {{ end }}
                 </h2>
                 <h3>
                     {{ .Site.Params.hero.subtitle }}
@@ -30,6 +33,11 @@
                         {{- partial "sections/hero/social.html" . -}}
                     </div>
                 </div>
+                {{ if .Site.Params.hero.nameAsterisk }}
+                    <p class="hero-content">
+                        <sup id="nameast">{{ .Site.Params.hero.nameAsteriskText | markdownify }} <a href="#nameastref" title="Jump back">↩</a></sup>
+                    </p>
+                {{ end }}
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="row justify-content-center">
